@@ -1,0 +1,52 @@
+body {
+  background-image: url("http://f.cl.ly/items/3C0W1n1t1s0P1Z0w131r/background.png");
+  font-family: "Lucida Grande";
+}
+main {
+  font-size: 15;
+  border-radius: 10px;
+  padding: 3%;
+  margin-top: 20;
+  margin-bottom: 20;
+  margin-left: auto;
+  margin-right: auto;
+  width: 73%;
+  height: 100%;
+  background-color: white;
+  overflow: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#header {
+  margin-top: -10;
+  margin-left: 0;
+  margin-right: 50;
+  width: 90%;
+}
+#products {
+  font-weight: bold;
+  font-size: 20;
+}
+img {
+  float:left;
+  margin-right:20px;
+}
+#section {
+  margin-bottom: 20;
+  margin-left: 20;
+  margin-right: 20;
+  overflow: auto;
+}
+.button {
+  color: blue;
+  border-radius: 6px;
+  border-width: thin;
+  padding: 5px 10px;
+  background-color: white;
+  border-color: blue;
+  font-size: 15;
+  font-family: "Lucida Grande";
+}
+.button-colored {
+  color: white;
+  background-color: blue;
+}
