@@ -85,7 +85,7 @@ main {
   padding: 2px 7px;
       box-sizing: border-box;
   }
-.boxes[type=text]:focus {
+input:focus {
 box-shadow: 0 0 10px rgb(150,250,240);
 outline: none;
 }

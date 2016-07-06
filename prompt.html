@@ -1,0 +1,21 @@
+<input class="firstname" placeholder="firstname">
+<input class="lastname" placeholder="lastname">
+<button>Say Hey</button>
+<p>
+</p>
+
+<script type="text/javascript">
+  function sayHey() {
+    p.textContent = "Hello, " + input.value + " " + input2.value + "!";
+  }
+
+  var button = document.querySelector("button")
+
+  var input = document.querySelector(".firstname")
+  var input2 = document.querySelector(".lastname")
+
+  button.addEventListener("click", sayHey)
+  var p = document.querySelector("p");
+
+
+</script>
