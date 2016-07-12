@@ -1,0 +1,18 @@
+<input class="comment">
+<button type="button">Say it</button>
+
+
+<script type = "text/javascript">
+var comment = document.querySelector(".comment")
+var button = document.querySelector("button")
+
+button.addEventListener("click", listComment)
+
+function listComment() {
+  var p = document.createElement("p")
+  p.textContent = comment.value;
+  var body = document.querySelector("body");
+  body.appendChild(p);
+}
+
+</script>

@@ -4,7 +4,7 @@ header {
   margin-left: -8;
   margin-right: -8;
 }
-#big_button {
+.big_button {
   height:40px;
   width:100px;
   border-radius: 4px;
@@ -16,32 +16,23 @@ header {
   font-size: 100%;
   color: white;
   background-color:rgb(51,60,181);
+  text-align: center;
+  line-height: 38px;
 }
-
 hr {
     border: 0;
     height: 1.5px;
     box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
 }
-#About {
+a {
   color: white;
   float:right;
   margin-top: 17px;
   margin-right:15px;
   font-family: "Lucida Grande";
   font-size: 95%;
-  color: white;
   text-shadow:1px 1px 2px gray;
-}
-#Contact {
-  color: white;
-  float:right;
-  margin-top: 17px;
-  margin-right:15px;
-  font-family: "Lucida Grande";
-  font-size: 95%;
-  color: white;
-  text-shadow:1px 1px 2px gray;
+  text-decoration: none;
 }
 body {
   background-image: url("http://f.cl.ly/items/3C0W1n1t1s0P1Z0w131r/background.png");
@@ -56,7 +47,6 @@ main {
   margin-left: auto;
   margin-right: auto;
   width: 75%;
-  height: 40%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   line-height: 0px;
@@ -70,18 +60,19 @@ main {
 #labels {
   margin-bottom: 25;
   line-height: 18px;
-  }
-.boxes {
+}
+#labels label {
   display: inline-block;
-  float: right;
-  width: 30%;
-  margin-right: 340;
+  width: 100px;
+}
+.boxes {
   border: solid red;
   border-radius: 3px;
   border-width: thin;
   color: grey;
   padding: 2px 7px;
-      box-sizing: border-box;
+  box-sizing: border-box;
+  width: 200;
   }
 input:focus {
 box-shadow: 0 0 10px rgb(150,250,240);

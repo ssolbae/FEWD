@@ -1,0 +1,21 @@
+<input class="firstnumber">
+<input class="secondnumber">
+<button type="button">Add</button>
+<p>
+</p>
+
+<script type = "text/javascript">
+var number1 = document.querySelector(".firstnumber");
+var number2 = document.querySelector(".secondnumber");
+var p = document.querySelector("p");
+
+var button = document.querySelector("button");
+button.addEventListener("click", add);
+
+function add() {
+  number1 = parseInt(number1.value);
+  number2 = parseInt(number2.value);
+  p.textContent= number1+number2;
+}
+
+</script>

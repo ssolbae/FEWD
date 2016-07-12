@@ -7,13 +7,12 @@
   <header>
     <hr>
       <img src="acme-corp logo.jpg"
-            alt= "logo"
-            height = "52"
-            width = "180"/>
-      <button id="big_button">Sign Up</button>
+        alt= "logo"
+        height = "52"
+        width = "180"/>
+      <a href="./signup.html" class="big_button">Sign Up</a>
 
-    <div id="Contact">Contact Us</div>
-    <div id="About">About ACME Corp</div>
+    <a href="./products.html">Products</a>
   <hr>
   </header>
 
@@ -26,20 +25,19 @@
       <p><label>First Name</label><input class="boxes" type="text" placeholder="John" required/></p>
       <p><label>Last Name</label><input class="boxes" type="text" placeholder="Doe" required/></p>
       <p><label>Email</label><input class="boxes" type="email" placeholder="john.doe@example.com" required/></p>
-      <p><label>Password</label><input class="boxes" type="text"></p>
+      <p><label>Password</label><input class="boxes" type="password" required/></p>
       </div>
-    </form>
 
       <p>How did you hear about us?</p>
-      <p><select name="select">
+      <p><select required>
         <option value="value1" selected>Pick one...</option>
         <option value="value2">Friend</option>
         <option value="value3">Advertisement</option>
       </select></p>
 
-      <p><input type="checkbox">Agree to our terms of service</p>
+      <p><input type="checkbox" required/>Agree to our terms of service</p>
       <p><input type="submit" value="Sign Up"></p>
-
+    </form>
 
     </main>
 
