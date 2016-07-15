@@ -15,7 +15,7 @@ function formSubmitted(event) {
 
   label.appendChild(checkbox);
   label.appendChild(span);
-  newTodo.appendChild(span);
+  newTodo.appendChild(label);
   body.appendChild(newTodo);
 
   form.reset();
