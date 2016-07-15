@@ -13,9 +13,10 @@ function formSubmitted(event) {
   span.textContent = todo.value;
   checkbox.setAttribute("type", "checkbox");
 
+  label.appendChild(checkbox);
+  label.appendChild(span);
+  newTodo.appendChild(span);
   body.appendChild(newTodo);
-  body.appendChild(checkbox);
-  body.appendChild(span);
 
   form.reset();
 }
