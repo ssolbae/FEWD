@@ -14,7 +14,7 @@ var green = document.querySelector(".circlesGo");
 
 function turnRed() {
   red.classList.toggle("Stop");
-  green.clssList.remove("Go");
+  green.classList.remove("Go");
   yellow.classList.remove("Slow");
   clearInterval(intervalMagic);
 }
@@ -31,11 +31,10 @@ function turnGreen() {
   clearInterval(intervalMagic);
 }
 function magic() {
-  yellow.classList.add("Slow")
+  yellow.classList.toggle("Slow");
   red.classList.remove("Stop");
   green.classList.remove("Go");
 }
 function flickerYellow() {
-  intervalMagic = setInterval(magic, 1000);
-
+   intervalMagic = setInterval(magic, 1000);
 }
