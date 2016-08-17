@@ -1,0 +1,71 @@
+ABAB
+
+1.
+turning card over
+	a. 1st?
+		- flip over: remove "card-face-down" class
+	b. 2nd
+		- flip over
+			- match (take away --> visibility: hidden or opacity: 0)
+			- no match (wait & flip both back over)
+
+var firstCard = null;
+var secondCard = null;
+
+function flip(event) {
+	var curCard = e.target; (target tells u which element triggered the event)
+	if (firstCard == null) {
+		firstCard = curCard;
+	} else {
+		secondCard = curCard;
+		if (firstCard.getAttribute("data-name") == secondCard.getAttribute("data-name")) {
+			--> match!
+		} else {
+			--> don't match!
+		}
+	}
+}
+
+
+
+CSS
+card
+width, height,
+background size: cover (maximize pic)
+
+card face down
+	- face down look
+
+background image
+
+.card{}
+.pikachu{}
+.card-face-down{}
+
+<div ckass: "card pikachu card-face-down">
+
+
+DEALING
+- est array of cards (class names)
+- array x2
+- randomize
+- loop through array:
+	- make a card
+		a. create div
+		b. add classes
+
+		var a = ["usa", "brazil"];
+		a.forEach(function(country, i) {
+			var card = doc.createElement..'
+			card.classlist.add(c, "card", "flipped")
+			//append to board
+			//add evenlistener --> (take care of #1)
+		})
+
+
+
+for everycard, flip card over
+1 fx for turning card over (maybe split into 2 --> flip over 1st & flip over 2nd)
+
+
+start w building a board --> flip
