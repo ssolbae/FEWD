@@ -13,21 +13,52 @@
 .card-face-up {
   background-image: none;
   background-size: cover;
+  border: solid;
+  background-color: rgb(233, 202, 170);
 }
 
-.gameIntro {
+p1 {
+  color: yellow;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  -webkit-text-stroke: 1px black;
+}
+img {
+  margin-bottom: 3%;
+}
+.professor {
+  float:right;
+}
+.words {
+  margin-left: 55;
+  font-size: 20;
+}
+.gameHow {
+  width: 50%;
+  height: 70%;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 10%;
+  border-style: dotted;
+  border-radius: 50px;
 
 }
 
 .gameBox {
   width: 50%;
-  height: 50%;
   margin-left: 25%;
   margin-right: 25%;
+  margin-top: 10%;
+  border-style: dotted;
+  overflow: auto;
 }
 
 .gameOver {
-
+  text-align: center;
+  margin-top: 20%;
+  font-size: large;
 }
 
 .hidden {
@@ -37,19 +68,19 @@
 
 .gameIntro {
   text-align: center;
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
 .startButton {
 
 }
+.howButton {
+
+}
 
 .buttons {
-	-moz-border-radius:28px;
-	-webkit-border-radius:28px;
 	border-radius:28px;
 	border:1px solid #18ab29;
-	display:inline-block;
 	cursor:pointer;
   background-color: white;
 	color:black;

@@ -1,45 +1,66 @@
 var gameIntro = document.querySelector(".gameIntro");
+var gameHow = document.querySelector(".gameHow");
 var gameBox = document.querySelector(".gameBox");
 var gameOver = document.querySelector(".gameOver");
 
 var startButton = document.querySelector(".startButton");
+var howButton = document.querySelector(".howButton");
 var cardFaceDown = document.querySelector(".card-face-down");
 var theImages = [];
 var selectedImages = [];
 var firstCard;
 var secondCard;
-
+var numberOfCards = 4;
 
 for (i = 1; i <= 721; i++) {
   theImages.push("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + i + ".png")
 }
 
 startButton.addEventListener("click", startGame);
+howButton.addEventListener("click", describeGame);
+
+function describeGame() {
+  gameIntro.classList.add("hidden");
+  gameHow.classList.remove("hidden");
+
+}
 
 function startGame() {
-  gameBox.classList.remove("hidden")
   gameIntro.classList.add("hidden");
+  gameBox.classList.remove("hidden")
   deal();
 }
 
   function deal() {
     selectedImages = [];
 
-    for (var i = 0; i < 8; i++) {
+    for (var i = 0; i < numberOfCards / 2; i++) {
       selectedImages.push(theImages[Math.floor(Math.random() * theImages.length)]);
     }
     // Double the array and shuffle it
     selectedImages = shuffle(selectedImages.concat(selectedImages));
 
-    var cards = document.getElementsByClassName("card");
-
-    Array.prototype.forEach.call(cards, function(card, i) {
-        card.classList.remove("card-face-down");
-        card.classList.add("card-face-up");
-        card.style.backgroundImage = "url('" + selectedImages[i] + "')";
-        card.addEventListener("click", flip);
+    selectedImages.forEach(function(selectedCard) {
+      console.log(selectedCard);
+      var card = document.createElement("div");
+      card.classList.remove("card-face-down");
+      card.classList.add("card-face-up");
+      card.classList.add("card");
+      card.classList.add("col-sm-3");
+      card.style.backgroundImage = "url('" + selectedCard + "')";
+      card.addEventListener("click", flip);
+      gameBox.appendChild(card);
     });
-    setTimeout(magic, 2000);
+
+    // var cards = document.getElementsByClassName("card");
+    //
+    // Array.prototype.forEach.call(cards, function(card, i) {
+    //     card.classList.remove("card-face-down");
+    //     card.classList.add("card-face-up");
+    //     card.style.backgroundImage = "url('" + selectedImages[i] + "')";
+    //     card.addEventListener("click", flip);
+    // });
+    setTimeout(magic, 3000);
   }
 
 function flip(event) {
@@ -52,12 +73,18 @@ function flip(event) {
       firstCard = null;
       secondCard = null;
       if (!document.querySelector(".card-face-down")) {
-        gameBox.classList.add("hidden");
-        gameOver.classList.remove("hidden");
-
+        if (numberOfCards == 16) {
+          gameBox.classList.add("hidden");
+          gameOver.classList.remove("hidden");
+        } else {
+          gameBox.classList.add("hidden");
+          gameBox.textContent = "";
+          numberOfCards = numberOfCards * 2;
+          startGame();
+        }
       }
     } else {
-      setTimeout(dismatch, 200);
+      setTimeout(dismatch, 100);
     }
   } else {
     // First card...
