@@ -46,6 +46,17 @@ background image
 
 
 DEALING
+- 3 levels in this game --> numOfCards(4, 8, 16)
+how I get and randomly select pokemon images?
+- have 721 image links (API)
+- put all the links in an array
+- new array (selectedImages) --> put randomly selected half of numOfCards
+- concat this array and shuffle
+line 37-41
+- flip
+
+
+
 - est array of cards (class names)
 - array x2
 - randomize

@@ -84,7 +84,7 @@ function flip(event) {
         }
       }
     } else {
-      setTimeout(dismatch, 100);
+      setTimeout(dismatch, 200);
     }
   } else {
     // First card...
