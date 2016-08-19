@@ -5,6 +5,7 @@ var gameOver = document.querySelector(".gameOver");
 
 var startButton = document.querySelector(".startButton");
 var howButton = document.querySelector(".howButton");
+var homeButton = document.querySelector(".homeButton");
 var cardFaceDown = document.querySelector(".card-face-down");
 var theImages = [];
 var selectedImages = [];
@@ -18,7 +19,12 @@ for (i = 1; i <= 721; i++) {
 
 startButton.addEventListener("click", startGame);
 howButton.addEventListener("click", describeGame);
+homeButton.addEventListener("click", backToHome);
 
+function backToHome() {
+  gameHow.classList.add("hidden");
+  gameIntro.classList.remove("hidden");
+}
 function describeGame() {
   gameIntro.classList.add("hidden");
   gameHow.classList.remove("hidden");
