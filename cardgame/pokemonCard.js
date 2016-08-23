@@ -32,6 +32,7 @@ function describeGame() {
 }
 
 function startGame() {
+  flag = true;
   gameIntro.classList.add("hidden");
   gameBox.classList.remove("hidden")
   deal();
@@ -66,27 +67,50 @@ function startGame() {
     //     card.addEventListener("click", flip);
     // });
     setTimeout(magic, 3000);
-    falg = false;
   }
 
+function isValid(card) {
+  if (card.alreadyFlipped == true) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
 function flip(event) {
+  // 1. setting the cards
+  // 2. do job (either flip both cards if match else flip back)
+
   if (flag) {
     return;
   } else {
+    // card setting
+    if (isValid(this)) {
+      if (firstCard == null) {
+        firstCard = this;
+        firstCard.classList.remove("card-face-down");
+        firstCard.classList.add("card-face-up");
+      } else {
+        secondCard = this;
+        secondCard.classList.remove("card-face-down");
+        secondCard.classList.add("card-face-up");
+      }
+    }
 
-    if (firstCard) {
-      // Second card...
-      secondCard = this;
-      secondCard.classList.remove("card-face-down");
-      secondCard.classList.add("card-face-up");
+    if (firstCard && this != firstCard && !this.alreadyFlipped) {
       if (firstCard.style.backgroundImage == secondCard.style.backgroundImage) {
+        // match
+        firstCard.alreadyFlipped = true;
+        secondCard.alreadyFlipped = true;
         firstCard = null;
         secondCard = null;
         if (!document.querySelector(".card-face-down")) {
           if (numberOfCards == 16) {
+            // finished last round
             gameBox.classList.add("hidden");
             gameOver.classList.remove("hidden");
           } else {
+            // finished this round, goto next round
             gameBox.classList.add("hidden");
             gameBox.textContent = "";
             numberOfCards = numberOfCards * 2;
@@ -94,13 +118,9 @@ function flip(event) {
           }
         }
       } else {
+        // no match
         setTimeout(dismatch, 200);
       }
-    } else {
-      // First card...
-      firstCard = this;
-      firstCard.classList.remove("card-face-down");
-      firstCard.classList.add("card-face-up");
     }
   }
 }
@@ -110,7 +130,6 @@ function dismatch() {
   firstCard.classList.toggle("card-face-up");
   secondCard.classList.toggle("card-face-down");
   secondCard.classList.toggle("card-face-up");
-
   firstCard = null;
   secondCard = null;
 }
