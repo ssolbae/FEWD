@@ -12,6 +12,7 @@ var selectedImages = [];
 var firstCard;
 var secondCard;
 var numberOfCards = 4;
+var flag = true;
 
 for (i = 1; i <= 721; i++) {
   theImages.push("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + i + ".png")
@@ -28,7 +29,6 @@ function backToHome() {
 function describeGame() {
   gameIntro.classList.add("hidden");
   gameHow.classList.remove("hidden");
-
 }
 
 function startGame() {
@@ -47,7 +47,6 @@ function startGame() {
     selectedImages = shuffle(selectedImages.concat(selectedImages));
 
     selectedImages.forEach(function(selectedCard) {
-      console.log(selectedCard);
       var card = document.createElement("div");
       card.classList.remove("card-face-down");
       card.classList.add("card-face-up");
@@ -67,36 +66,42 @@ function startGame() {
     //     card.addEventListener("click", flip);
     // });
     setTimeout(magic, 3000);
+    falg = false;
   }
 
 function flip(event) {
-  if (firstCard) {
-    // Second card...
-    secondCard = this;
-    secondCard.classList.remove("card-face-down");
-    secondCard.classList.add("card-face-up");
-    if (firstCard.style.backgroundImage == secondCard.style.backgroundImage) {
-      firstCard = null;
-      secondCard = null;
-      if (!document.querySelector(".card-face-down")) {
-        if (numberOfCards == 16) {
-          gameBox.classList.add("hidden");
-          gameOver.classList.remove("hidden");
-        } else {
-          gameBox.classList.add("hidden");
-          gameBox.textContent = "";
-          numberOfCards = numberOfCards * 2;
-          startGame();
+  if (flag) {
+    return;
+  } else {
+
+    if (firstCard) {
+      // Second card...
+      secondCard = this;
+      secondCard.classList.remove("card-face-down");
+      secondCard.classList.add("card-face-up");
+      if (firstCard.style.backgroundImage == secondCard.style.backgroundImage) {
+        firstCard = null;
+        secondCard = null;
+        if (!document.querySelector(".card-face-down")) {
+          if (numberOfCards == 16) {
+            gameBox.classList.add("hidden");
+            gameOver.classList.remove("hidden");
+          } else {
+            gameBox.classList.add("hidden");
+            gameBox.textContent = "";
+            numberOfCards = numberOfCards * 2;
+            startGame();
+          }
         }
+      } else {
+        setTimeout(dismatch, 200);
       }
     } else {
-      setTimeout(dismatch, 200);
+      // First card...
+      firstCard = this;
+      firstCard.classList.remove("card-face-down");
+      firstCard.classList.add("card-face-up");
     }
-  } else {
-    // First card...
-    firstCard = this;
-    firstCard.classList.remove("card-face-down");
-    firstCard.classList.add("card-face-up");
   }
 }
 
@@ -110,7 +115,9 @@ function dismatch() {
   secondCard = null;
 }
 
+//let all cards face down again
 function magic() {
+  flag = false;
   var cards = document.getElementsByClassName("card");
   Array.prototype.forEach.call(cards, function (elem) {
       elem.classList.remove("card-face-up");
