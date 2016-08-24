@@ -21,3 +21,11 @@ button {
   height: 6%;
   font-size: 15px;
 }
+.titleFont {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(0, 157, 102);
+}
+.yearFont {
+  color: grey;
+}
